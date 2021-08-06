@@ -79,3 +79,11 @@ body {
     background-color: rgb(85, 187, 247);
     grid-column: span 2;
 }
+
+#delete-button:hover {
+    background-color: rgb(77, 164, 214);
+}
+
+#delete-button:active {
+    background-color: rgb(59, 133, 177);
+}
