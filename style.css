@@ -48,12 +48,25 @@ body {
 }
 
 .display-screen {
-    height: 75px;
     background-color: white;
+    max-width: 275px;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: right;
     padding: 10px 20px;
     margin-bottom: 20px;
     border: 2px;
     border-radius: 10px;
+}
+
+.screen-last {
+    min-height: 25px;
+    font-size: 15px;
+}
+
+.screen-current {
+    min-height: 50px;
+    font-size: 31px;
 }
 
 .calc-buttons {
