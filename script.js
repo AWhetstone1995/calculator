@@ -56,11 +56,18 @@ function setOperator(operator) {
     };
     firstOperand = currentScreen.textContent;
     currentOperation = operator;
+    if(currentOperation === "SQRT") evaluate();
     resetScreen = true;
 }
 
 function evaluate() {
     if (currentOperation === null) return;
+    if (currentOperation === "SQRT") {
+        currentScreen.textContent = operate(currentOperation, firstOperand, secondOperand);
+        resetScreen = true;
+        currentOperation = null;
+        return;
+    }
     secondOperand = currentScreen.textContent;
     currentScreen.textContent = operate(currentOperation, firstOperand, secondOperand);
     resetScreen = true;
@@ -72,7 +79,7 @@ function keyboardInput(e) {
     if (e.key === '=' || e.key === 'Enter') evaluate()
     if (e.key === 'Backspace') deleteNumber();
     if (e.key === 'Escape') clearScreen();
-    if (e.key === '/' || e.key === '+' || e.key === '-' || e.key === '*') 
+    if (e.key === '/' || e.key === '+' || e.key === '-' || e.key === '*' || e.key === '^') 
         setOperator(convertOperator(e.key));
 }
 
@@ -81,6 +88,7 @@ function convertOperator(operator) {
     if (operator === '+') return '+';
     if (operator === '-') return '-';
     if (operator === '*') return 'x';
+    if (operator === '^') return 'X^';
 }
 
 function operate(operator, a, b) {
@@ -96,6 +104,14 @@ function operate(operator, a, b) {
             return add(a,b);
         case '-':
             return subtract(a,b);
+        case 'X^':
+            return power(a,b);
+        case 'SQRT':
+            return squareRoot(a);
+        case 'X^2':
+            return squareNumber(a);
+        case 'MOD':
+            return modulo(a,b);
         default:
             return null;
     }
@@ -117,3 +133,18 @@ function divide(num1, num2){
     return num1 / num2;
 }
 
+function power(num1, num2) {
+    return Math.pow(num1, num2);
+}
+
+function squareRoot(number) {
+    return Math.sqrt(number);
+}
+
+function squareNumber(number) {
+    return number * number;
+}
+
+function modulo(num1, num2) {
+    return num1 % num2;
+}

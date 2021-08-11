@@ -100,3 +100,11 @@ body {
 #delete-button:active {
     background-color: rgb(59, 133, 177);
 }
+
+/* #sqrt-button {
+    grid-column: span 2;
+}
+
+#pow-button {
+    grid-column: span 2;
+} */
