@@ -56,13 +56,13 @@ function setOperator(operator) {
     };
     firstOperand = currentScreen.textContent;
     currentOperation = operator;
-    if(currentOperation === "SQRT") evaluate();
+    if(currentOperation === "SQRT" || currentOperation === "X^2") evaluate();
     resetScreen = true;
 }
 
 function evaluate() {
     if (currentOperation === null) return;
-    if (currentOperation === "SQRT") {
+    if (currentOperation === "SQRT" || currentOperation === "X^2") {
         currentScreen.textContent = operate(currentOperation, firstOperand, secondOperand);
         resetScreen = true;
         currentOperation = null;

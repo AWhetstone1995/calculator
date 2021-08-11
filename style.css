@@ -45,6 +45,7 @@ body {
     background-color: rgb(90, 85, 85);
     border: 10px solid;
     padding: 15px;
+    /* align-self: center; */
 }
 
 .display-screen {
