@@ -79,7 +79,7 @@ function keyboardInput(e) {
     if (e.key === '=' || e.key === 'Enter') evaluate()
     if (e.key === 'Backspace') deleteNumber();
     if (e.key === 'Escape') clearScreen();
-    if (e.key === '/' || e.key === '+' || e.key === '-' || e.key === '*' || e.key === '^') 
+    if (e.key === '/' || e.key === '+' || e.key === '-' || e.key === '*' || e.key === '^' || e.key === 'q') 
         setOperator(convertOperator(e.key));
 }
 
@@ -89,6 +89,7 @@ function convertOperator(operator) {
     if (operator === '-') return '-';
     if (operator === '*') return 'x';
     if (operator === '^') return 'X^';
+    if (operator === 'q') return 'SQRT';
 }
 
 function operate(operator, a, b) {
