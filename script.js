@@ -75,7 +75,7 @@ function evaluate() {
 }
 
 function keyboardInput(e) {
-    if (e.key >= 0 && e.key <=9) appendNumberToScreen(e.key);
+    if (e.key >= 0 && e.key <=9 || e.key === '.') appendNumberToScreen(e.key);
     if (e.key === '=' || e.key === 'Enter') evaluate()
     if (e.key === 'Backspace') deleteNumber();
     if (e.key === 'Escape') clearScreen();
