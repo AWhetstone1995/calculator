@@ -95,26 +95,42 @@ function convertOperator(operator) {
 function operate(operator, a, b) {
     a = Number(a);
     b = Number(b);
+    result = 0;
     switch (operator) {
         case '/':
             if (b === 0) return null
-            else return divide(a,b)
+            else result = divide(a,b)
+            break;
         case 'x':
-            return multiply(a,b);
+            result = multiply(a,b);
+            break;
         case '+':
-            return add(a,b);
+            result = add(a,b);
+            break;
         case '-':
-            return subtract(a,b);
+            result = subtract(a,b);
+            break;
         case 'X^':
-            return power(a,b);
+            result = power(a,b);
+            break;
         case 'SQRT':
-            return squareRoot(a);
+            result = squareRoot(a);
+            break;
         case 'X^2':
-            return squareNumber(a);
+            result = squareNumber(a);
+            break;
         case 'MOD':
-            return modulo(a,b);
+            result = modulo(a,b);
+            break;
         default:
-            return null;
+            result = null;
+    }
+    if (result == null) {
+        return result
+    } else {
+        result = parseFloat(result.toFixed(12));
+        console.log(result)
+        return result
     }
 }
 
